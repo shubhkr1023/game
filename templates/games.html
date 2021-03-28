@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<h1>Welcome {{ current_user.username }}!</h1>
+ 
+
+  <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+
+  <ul>
+        <li>
+            <a href="{{ url_for('gamesAdd')}}">
+                Add Game
+            </a>
+        </li>
+        <li><a href="{{ url_for('gamesSearch')}}">
+                Search 
+            </a>
+        </li>
+        <li><a href="{{ url_for('gamesBrowse') }}">
+               Browse
+            </a>
+        </li>
+        <li><a href="{{ url_for('gamesDelete') }}">
+                Delete
+            </a>
+        </li>
+        <li><a href="{{ url_for('gamesUpdate') }}">
+                Update
+            </a>
+        </li>
+
+     
+    </ul>
+    </div>
+      </nav>
+ </div>
+ 
+ 
+ {% endblock %}
+
+

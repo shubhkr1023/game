@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+<ol>
+{% for i in range(0,size) %}
+ <li>{{game[i]}}</li>
+{% endfor %}
+
+</ol> 
+
+
+</div>
+
+
+{% endblock %}
+
