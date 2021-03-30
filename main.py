@@ -55,29 +55,35 @@ def gamesUpdate():
         return render_template('games_update.html')
     
 
-
-    game = GameModel.query.filter_by(title=title).first()
-    if game:
-        return render_template('games_search.html', game = game)
-    return f"Game with title ={title} Doesn't exist"
-
-
-
     if request.method == 'POST':
-        if request.form['title']:
-            title = request.form['title']
-        if request.form['platform']:
-            platform = request.form['platform']
-        if  request.form['score']:
-            score = request.form['score']
-        if  request.form['genre']:
-            genre = request.form['genre']
-        if request.form['editors_choice']:
-            editors_choice=request.form['editors_choice']
-        new_game = GameModel(title=title, platform=platform, score=score, genre = genre, editors_choice=editors_choice)
-        db.session.add(new_game)
-        db.session.commit()
-        return redirect('/games')
+        gametitle =request.form['title']
+        game = GameModel.query.filter_by(title=gametitle).first()
+        if game:
+            return render_template('games_search.html', game = game)
+ 
+            if request.method == 'POST':
+                    if request.form['title']:
+                        title = request.form['title']
+                    if request.form['platform']:
+                        platform = request.form['platform']
+                    if  request.form['score']:
+                        score = request.form['score']
+                    if  request.form['genre']:
+                        genre = request.form['genre']
+                    if request.form['editors_choice']:
+                        editors_choice=request.form['editors_choice']
+                    new_game = GameModel(title=title, platform=platform, score=score, genre = genre, editors_choice=editors_choice)
+                    db.session.add(new_game)
+                    db.session.commit()
+                    return redirect('/games')
+
+
+
+
+
+        return f"Game with title ={gametitle} Doesn't exist"
+
+
 
 
 	
@@ -96,14 +102,14 @@ def gamesSearch():
                 #data={}
                 #data['title']=game[0]
                 #data['platform']=game[1]
-                data=jsonify(game)
+                #data=jsonify(game)
                 #platform=GameModel.query.filter_by(title=gametitle).second()
                 #score=GameModel.query.filter_by(title=gametitle).third()
                 #genre=GameModel.query.filter_by(title=gametitle).fourth()
                 #editors_choice=GameModel.query.filter_by(title=gametitle).fifth()
                 db.session.commit()
                 #return render_template('games_search.html',platform=platform,score=score,genre=genre,editors_choice=editors_choice,game=game)
-                return render_template('games_search.html',data=data)
+                return render_template('games_search.html',game=game)
 
             else:
                 flash("Game doesn't exist!")
@@ -165,7 +171,7 @@ def register():
 		# if this returns a user, then the email already exists in database
 
         if user:
-	    # if a user is found, we want to redirect back to signup page so user can try again
+	    # if a user is found redirect back to signup page 
            flash('Email address already exists')
            return redirect('/register')
 

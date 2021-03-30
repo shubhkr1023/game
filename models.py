@@ -24,7 +24,7 @@ class UserModel(UserMixin, db.Model):
 class GameModel(db.Model):
     __tablename__ ='games'
 	
-    title=db.Column(db.String(100))
+    title=db.Column(db.String(100),primary_key=True)
     platform=db.Column(db.String(100))
     score=db.Column(db.Float)
     genre=db.Column(db.String(100))
