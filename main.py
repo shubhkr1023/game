@@ -154,6 +154,9 @@ def login():
         if user is not None and user.check_password(request.form['password']):
             login_user(user)
             return redirect('/games')
+        if  user.check_password(request.form['password']) is False:
+            flash("Incorrect Password!")
+            
      
     return render_template('login.html')
  

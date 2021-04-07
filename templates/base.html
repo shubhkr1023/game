@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Games</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <style>
+    .hero.is-primary{
+      background-image: linear-gradient(#8b9da9, #fff6e4);
+      box-shadow: inset 0 0 100px hsla(0,0%,0%,.3);
+     }
+    </style>
 </head>
 
 <body>
@@ -19,7 +25,7 @@
                     <div id="navbarMenuHeroA" class="navbar-menu">
                         <div class="navbar-end">
                             <a href="{{ url_for('games') }}" class="navbar-item">
-                                Games
+                                Home
                             </a>
                             <a href="{{ url_for('login') }}" class="navbar-item">
                                 Login
@@ -45,7 +51,7 @@
             </div>
         </div>
     </section>
-<p><b>About: This is an app to play around with the Game database</b></p>
+<p><b>© 2021 Flaskframework</b></p>
 </body>
 
 </html>

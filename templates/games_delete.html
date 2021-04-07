@@ -1,22 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>
-<form action='' method="POST">
-<p>Game Title  <input type = "text" name = "title" /> </p>
-<p><input type = "submit" value = "Submit" /></p>
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Delete Game</h3>
+    <div class="box">
 
+     <form action='' method="POST">
+ <input type = "text" class="input is-large" name = "title" placeholder="Game Title" required="" />
+       <br>
+       <br>
+      <input type = "submit" class="button is-block is-info is-large is-fullwidth" value = "Submit" />
+ </form>
+<br>
  {% with messages = get_flashed_messages() %}
         {% if messages %}
-            <!--<div class="notification is-danger"> -->
+            <div class="notification is-success"> 
             <div>
-                {{ messages[0] }}. Go to <a href="{{ url_for('games') }}">games page</a>.
+                {{ messages[0] }}. Go to <a href="{{ url_for('games') }}"><i>Home page</i></a>.
             </div>
 
         {% endif %}
         {% endwith %}
 
-
+ </div>
 </div>
 
 
